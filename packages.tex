@@ -1,0 +1,121 @@
+%% Copyright 2020 Dony Darmawan Putra & Hasan Albinsaid
+
+%% for dots table of contents
+
+\usepackage{booktabs}
+\usepackage{titletoc}% http://ctan.org/pkg/titletoc
+
+\contentsmargin{0pt}
+\renewcommand\contentspage{\thecontentspage}
+
+\dottedcontents{section}[2.3em]{}{2.3em}{5pt}
+\dottedcontents{subsection}[5.5em]{}{3.2em}{5pt}
+
+
+ \titlecontents*{chapter}% <section-type>
+  [0pt]% <left>
+  {}% <above-code>
+  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\bfseries\dotfill\contentspage\\\vspace{0mm}}% <filler-page-format> 
+
+ \titlecontents*{section}% <section-type>
+  [0pt]% <left>
+  {}% <above-code>
+  {\bfseries\ \thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\bfseries\dotfill\contentspage\\\vspace{0mm}}% <filler-page-format> 
+  
+   \titlecontents*{subsection}% <section-type>
+  [0pt]% <left>
+  {}% <above-code>
+  {\hspace{2mm}\bfseries\ \thecontentslabel\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\bfseries\dotfill\contentspage\\\vspace{0mm}}% <filler-page-format> 
+
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace}
+\addtocontents{lof}{\linespread{1}\selectfont}
+\addtocontents{lot}{\protect\noaddvspace}
+\addtocontents{lot}{\linespread{1}\selectfont}
+
+%% Arabic Text
+\usepackage[utf8]{inputenc}
+\usepackage{arabtex}
+
+%% for Chinese typing
+\usepackage{xeCJK}
+\setCJKmainfont{AR PL KaitiM Big5}                    
+
+%% for sections
+\usepackage{mfirstuc}
+
+%% for times new roman
+\usepackage{mathptmx}
+
+%% for images
+\usepackage{graphicx}
+\graphicspath{ {Images/} }
+\usepackage{caption}
+\usepackage{subcaption}
+
+%%  for paper size and margins
+\usepackage[a4paper,top=2.54cm,bottom=2.54cm, left=3cm, right=3cm]{geometry}
+
+
+%% for paragraph
+%paragraph indentation
+\usepackage{indentfirst}
+\setlength{\parindent}{4em} 
+
+%paragraph spacing
+\setlength{\parskip}{1em}
+
+%Line spacing
+\renewcommand{\baselinestretch}{2}
+
+%% for font size
+\usepackage{setspace}
+\usepackage{blindtext}
+\newcommand{\bigsize}{\fontsize{16pt}{20pt}\selectfont}
+\newcommand{\chinnesesize}{\fontsize{18pt}{20pt}\selectfont}
+
+%% for header and footer
+\usepackage{blindtext}
+\pagestyle{plain}
+
+
+%% for references
+\usepackage[square,numbers]{natbib}
+\renewcommand{\bibsection}{}
+
+%% for chapter title
+ \usepackage{titlesec}
+ \titleformat{\chapter}[display]{}{\filright  \LARGE  \chaptername\enspace\thechapter}{-2pt}{\filright\LARGE  \bfseries}[\vskip0pt]
+ \titleformat{name=\chapter, numberless}{}{}{-10pt}{\filright \enspace}[\vskip0pt]
+
+ \titlespacing{\chapter}{-20pt}{-20pt}{10pt}
+ \titlespacing{name=\chapter, numberless}{-10pt}{-10pt}{-10pt}
+ 
+\titlespacing*{\section}
+{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}
+{0pt}{0pt}{0pt}
+ 
+\renewcommand{\contentsname}{\hfill\bfseries\LARGE Table of Contents \hfill}
+\renewcommand{\listfigurename}{\hfill\bfseries\LARGE Table of Figures \hfill}
+\renewcommand{\listtablename}{\hfill\bfseries\LARGE Table of Tables \hfill}
+  
+
+%% Algorithm    
+\usepackage{algorithmic}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{mathtools}
+\usepackage[ruled,vlined,algochapter]{algorithm2e}
+\usepackage{varioref}
+\usepackage{hyperref}
+
+
+%% Math Set Symbol
+\usepackage{newtxmath}
