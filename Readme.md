@@ -1,6 +1,11 @@
 ## National Sun Yat-sen University (NSYSU) Thesis LaTEX Template
 See the thesis.pdf file in this repo for an overview of the generated document. You can rename "thesis.tex" into your custom name before writing your thesis.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hasanabs/nsysu-thesis-latex-template/master/Screenshot.png" height="650" title="Thesis Template Screenshot">
+  <br><br><br>
+</p>
+
 ## Note
 Make sure that your compiler already set to XeLaTeX, if no, the Chinese font doesn't appear
 

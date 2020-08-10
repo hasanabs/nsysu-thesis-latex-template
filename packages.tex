@@ -4,6 +4,8 @@
 
 \usepackage{booktabs}
 \usepackage{titletoc}% http://ctan.org/pkg/titletoc
+\usepackage{tocloft} %For TOC, TOF, TOT settings
+\usepackage[font=small]{caption}
 
 \contentsmargin{0pt}
 \renewcommand\contentspage{\thecontentspage}
@@ -12,26 +14,26 @@
 \dottedcontents{subsection}[5.5em]{}{3.2em}{5pt}
 
 
- \titlecontents*{chapter}% <section-type>
-  [0pt]% <left>
-  {}% <above-code>
-  {\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
-  {}% <numberless-entry-format>
-  {\bfseries\dotfill\contentspage\\\vspace{0mm}}% <filler-page-format> 
+\titlecontents*{chapter}% <section-type>
+[0pt]% <left>
+{}% <above-code>
+{\bfseries\chaptername\ \thecontentslabel\quad}% <numbered-entry-format>
+{}% <numberless-entry-format>
+{\bfseries\dotfill\contentspage\\\vspace{0mm}}% <filler-page-format> 
 
- \titlecontents*{section}% <section-type>
-  [0pt]% <left>
-  {}% <above-code>
-  {\bfseries\ \thecontentslabel\quad}% <numbered-entry-format>
-  {}% <numberless-entry-format>
-  {\bfseries\dotfill\contentspage\\\vspace{0mm}}% <filler-page-format> 
-  
-   \titlecontents*{subsection}% <section-type>
-  [0pt]% <left>
-  {}% <above-code>
-  {\hspace{2mm}\bfseries\ \thecontentslabel\quad}% <numbered-entry-format>
-  {}% <numberless-entry-format>
-  {\bfseries\dotfill\contentspage\\\vspace{0mm}}% <filler-page-format> 
+\titlecontents*{section}% <section-type>
+[0pt]% <left>
+{}% <above-code>
+{\bfseries\ \thecontentslabel\quad}% <numbered-entry-format>
+{}% <numberless-entry-format>
+{\bfseries\dotfill\contentspage\\\vspace{0mm}}% <filler-page-format> 
+
+\titlecontents*{subsection}% <section-type>
+[0pt]% <left>
+{}% <above-code>
+{\hspace{2mm}\bfseries\ \thecontentslabel\quad}% <numbered-entry-format>
+{}% <numberless-entry-format>
+{\bfseries\dotfill\contentspage\\\vspace{0mm}}% <filler-page-format> 
 
 \newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
 \addtocontents{lof}{\protect\noaddvspace}
@@ -40,7 +42,6 @@
 \addtocontents{lot}{\linespread{1}\selectfont}
 
 %% Arabic Text
-\usepackage[utf8]{inputenc}
 \usepackage{arabtex}
 
 %% for Chinese typing
@@ -49,9 +50,6 @@
 
 %% for sections
 \usepackage{mfirstuc}
-
-%% for times new roman
-\usepackage{mathptmx}
 
 %% for images
 \usepackage{graphicx}
@@ -90,26 +88,47 @@
 \renewcommand{\bibsection}{}
 
 %% for chapter title
- \usepackage{titlesec}
- \titleformat{\chapter}[display]{}{\filright  \LARGE  \chaptername\enspace\thechapter}{-2pt}{\filright\LARGE  \bfseries}[\vskip0pt]
- \titleformat{name=\chapter, numberless}{}{}{-10pt}{\filright \enspace}[\vskip0pt]
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{}{\filright  \LARGE  \chaptername\enspace\thechapter}{-2pt}{\filright\LARGE  \bfseries}[\vskip0pt]
+\titleformat{name=\chapter, numberless}{}{}{-10pt}{\filright \enspace}[\vskip0pt]
 
- \titlespacing{\chapter}{-20pt}{-20pt}{10pt}
- \titlespacing{name=\chapter, numberless}{-10pt}{-10pt}{-10pt}
- 
+\titlespacing{\chapter}{-20pt}{-20pt}{10pt}
+\titlespacing{name=\chapter, numberless}{-10pt}{-10pt}{-10pt}
+
 \titlespacing*{\section}
 {0pt}{0pt}{0pt}
 \titlespacing*{\subsection}
 {0pt}{0pt}{0pt}
- 
+
+%TOC
 \renewcommand{\contentsname}{\hfill\bfseries\LARGE Table of Contents \hfill}
+\renewcommand{\cftaftertoctitle}{\hfill}
+%TOF
 \renewcommand{\listfigurename}{\hfill\bfseries\LARGE Table of Figures \hfill}
+\addtolength{\cftfignumwidth}{30pt}% More space
+\DeclareCaptionListFormat{figprefix}{#1\figurename~#2}
+\captionsetup[figure]{listformat=figprefix}
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}} %Add "-" dash in TOF
+%TOT
 \renewcommand{\listtablename}{\hfill\bfseries\LARGE Table of Tables \hfill}
-  
+\addtolength{\cfttabnumwidth}{30pt}% More space
+\DeclareCaptionListFormat{tabprefix}{#1\tablename~#2}
+\captionsetup[table]{listformat=tabprefix}
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}} %Add "-" dash in TOT
+
+
+%%For background image
+\usepackage[pages=some,scale=1,angle=0,opacity=1.0]{background}
+\newcommand\BackImage[2][scale=1]{%
+	\BgThispage
+	\backgroundsetup{
+		contents={\includegraphics[#1]{#2}}
+	}
+}
+
 
 %% Algorithm    
 \usepackage{algorithmic}
-\usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{mathtools}
 \usepackage[linesnumbered,ruled,vlined,algochapter]{algorithm2e}
